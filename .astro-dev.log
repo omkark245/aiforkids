@@ -1,0 +1,22 @@
+[vite] connected.
+[2m12:32:39[22m [34m[types][39m Generated [2m3ms[22m
+[33m[1m12:32:39[22m [WARN] [content][39m Content config not loaded
+[42m[1m astro [22m[49m [32mv6.1.2[39m [2mready in[22m 8135 [2mms[22m
+[2m┃[22m Local    [36mhttp://localhost:4321/[39m
+[2m┃[22m Network  [36mhttp://192.168.0.183:4321/[39m
+[2m12:32:39[22m [32mwatching for file changes...[39m
+[2m12:32:46[22m [34m[200][39m / [2m188ms[22m
+[2m12:32:47[22m [34m[200][39m /contact [2m101ms[22m
+[2m12:33:16[22m [34m[watch][39m /src/styles/global.css
+[2m12:33:16[22m [34m[watch][39m src/styles/global.css
+[vite] program reload
+[2m12:33:24[22m [34m[200][39m /contact [2m77ms[22m
+[2m12:33:37[22m [34m[200][39m / [2m33ms[22m
+[2m12:33:55[22m [34m[200][39m / [2m54ms[22m
+[2m12:35:51[22m Configuration file updated. Restarting...
+[vite] connected.
+[2m12:36:17[22m [34m[vite][39m Re-optimizing dependencies because vite config has changed
+[2m12:36:19[22m [34m[types][39m Generated [2m2.01s[22m
+[2m12:36:19[22m [34m[vite][39m Re-optimizing dependencies because vite config has changed
+[2m12:37:33[22m Configuration file added. Restarting...
+[vite] connected.

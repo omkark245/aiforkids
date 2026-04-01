@@ -7,8 +7,11 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "dev:node22": "npx -y node@22 node_modules/astro/bin/astro.mjs dev",
     "build": "astro build",
+    "build:node22": "npx -y node@22 node_modules/astro/bin/astro.mjs build",
     "preview": "astro preview",
+    "preview:node22": "npx -y node@22 node_modules/astro/bin/astro.mjs preview",
     "astro": "astro"
   },
   "dependencies": {

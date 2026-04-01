@@ -1054,8 +1054,9 @@ h4 {
 .site-footer {
 	margin-top: 80px;
 	padding: 48px 0 24px;
-	background: var(--white);
-	border-top: 1px solid var(--line);
+	background: #000;
+	border-top: 1px solid rgba(255, 255, 255, 0.12);
+	color: #fff;
 }
 
 .footer-grid {
@@ -1066,24 +1067,24 @@ h4 {
 
 .footer-copy {
 	margin: 16px 0 0;
-	color: var(--ink-500);
+	color: rgba(255, 255, 255, 0.82);
 	max-width: 34ch;
 }
 
 .site-footer h2 {
 	margin: 0 0 10px;
 	font-size: 1rem;
-	color: var(--ink-900);
+	color: #fff;
 }
 
 .site-footer a,
 .site-footer p,
 .site-footer li {
-	color: var(--ink-500);
+	color: inherit;
 }
 
 .site-footer a:hover {
-	color: var(--blue-700);
+	color: #9db7ff;
 }
 
 .footer-bottom {
