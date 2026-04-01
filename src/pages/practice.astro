@@ -1,0 +1,89 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { practiceCollections, siteFaqs, teachingSteps } from '../data/site';
+---
+
+<BaseLayout
+	title="Practice Resources | AI For Kidds"
+	description="Explore static MCQ sets, revision packs, flashcards, and answer-key based AI practice resources by grade."
+	path="/practice"
+>
+	<section class="page-hero">
+		<div class="shell">
+			<div class="page-hero-panel centered">
+				<span class="eyebrow">Practice resources</span>
+				<h1>Fast, static revision support that works on every device.</h1>
+				<p>
+					This page keeps practice lightweight and accessible. Instead of timers and dashboards, students get clear
+					chapter-based packs, recall prompts, and answer-key guided support.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="grid practice">
+				{practiceCollections.map((pack) => (
+					<div class="practice-card">
+						<span class="kicker">{pack.grades}</span>
+						<h3>{pack.title}</h3>
+						<p>{pack.description}</p>
+						<WhatsAppButton label="Request this practice set" message={pack.message} />
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="section-heading centered">
+				<span class="eyebrow">How practice works</span>
+				<h2>A simple revision model without unnecessary friction.</h2>
+			</div>
+			<div class="how-grid">
+				{teachingSteps.map((step, index) => (
+					<div class="step-card">
+						<span class="step-number">{index + 1}</span>
+						<h3>{step.title}</h3>
+						<p>{step.description}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="section-heading">
+				<span class="eyebrow">Frequently asked questions</span>
+				<h2>Common questions about the static practice model.</h2>
+			</div>
+			<div class="faq-list">
+				{siteFaqs.map((faq) => (
+					<div class="faq-item">
+						<details>
+							<summary>{faq.question}</summary>
+							<p>{faq.answer}</p>
+						</details>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="cta-panel">
+				<span class="eyebrow">Need the right pack?</span>
+				<h2>Tell us the grade and topic, and we will guide you to the best revision set.</h2>
+				<p>WhatsApp is the quickest way to find the right static resource for home learning or classroom support.</p>
+				<div class="hero-actions" style="justify-content: center;">
+					<WhatsAppButton label="Ask for a practice recommendation" message="Hi AI For Kidds, please recommend the right AI practice pack for my grade." />
+				</div>
+			</div>
+		</div>
+	</section>
+</BaseLayout>

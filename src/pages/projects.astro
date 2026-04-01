@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { projects, teachingSteps } from '../data/site';
+---
+
+<BaseLayout
+	title="Projects | AI For Kidds"
+	description="Explore static AI project ideas by grade, difficulty, and duration for classroom and home learning."
+	path="/projects"
+>
+	<section class="page-hero">
+		<div class="shell">
+			<div class="page-hero-panel centered">
+				<span class="eyebrow">Projects</span>
+				<h1>Project ideas that make AI feel practical, creative, and memorable.</h1>
+				<p>
+					Each project card helps students and teachers choose the right activity quickly by showing level,
+					audience, and time required in one simple layout.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="grid projects">
+				{projects.map((project) => (
+					<div class="project-card">
+						<span class="tag">{project.level}</span>
+						<h3>{project.title}</h3>
+						<p>{project.description}</p>
+						<span class="kicker">{project.audience} &middot; {project.duration}</span>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="section-heading centered">
+				<span class="eyebrow">A better project flow</span>
+				<h2>Use projects to move from theory to confident explanation.</h2>
+			</div>
+			<div class="how-grid">
+				{teachingSteps.map((step, index) => (
+					<div class="step-card">
+						<span class="step-number">{index + 1}</span>
+						<h3>{step.title}</h3>
+						<p>{step.description}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="cta-panel">
+				<span class="eyebrow">Need guidance?</span>
+				<h2>Ask which project best fits your grade, time, or classroom setup.</h2>
+				<p>WhatsApp is the quickest way to request a project recommendation or a teacher-friendly starting point.</p>
+				<div class="hero-actions" style="justify-content: center;">
+					<WhatsAppButton label="Ask for a project suggestion" message="Hi AI For Kidds, please recommend the right AI project for my grade or class." />
+				</div>
+			</div>
+		</div>
+	</section>
+</BaseLayout>

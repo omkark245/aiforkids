@@ -1,0 +1,82 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { teacherResources, teachingSteps } from '../data/site';
+---
+
+<BaseLayout
+	title="For Teachers | AI For Kidds"
+	description="Browse static lesson plans, worksheets, chapter guides, and rollout support for AI teaching in Indian schools."
+	path="/for-teachers"
+>
+	<section class="page-hero">
+		<div class="shell">
+			<div class="page-hero-panel centered">
+				<span class="eyebrow">For teachers</span>
+				<h1>Teacher support that stays simple, static, and classroom-ready.</h1>
+				<p>
+					Instead of a gated portal, this page gives teachers a clean overview of the resource types available and
+					a direct WhatsApp path to the right bundle.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="grid resources">
+				{teacherResources.map((resource) => (
+					<div class="resource-card">
+						<h3>{resource.title}</h3>
+						<p>{resource.description}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell split-panel">
+			<div class="info-card">
+				<strong>Designed for real classroom use</strong>
+				<ul class="detail-list">
+					<li>Grade-first planning that mirrors the public student pages</li>
+					<li>Static worksheets and chapter recaps teachers can adapt quickly</li>
+					<li>School rollout support explained in plain language</li>
+					<li>Simple contact through WhatsApp without any form workflow</li>
+				</ul>
+			</div>
+			<div>
+				<div class="section-heading">
+					<span class="eyebrow">Teaching flow</span>
+					<h2>Use the same template logic in class.</h2>
+				</div>
+				<div class="grid lesson">
+					{teachingSteps.map((step, index) => (
+						<div class="step-card">
+							<span class="step-number">{index + 1}</span>
+							<h3>{step.title}</h3>
+							<p>{step.description}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="cta-panel">
+				<span class="eyebrow">Teacher WhatsApp CTA</span>
+				<h2>Need the right classroom resource pack?</h2>
+				<p>Share the grade, topic, and school context on WhatsApp and we will guide you to the best static resource set.</p>
+				<div class="hero-actions" style="justify-content: center;">
+					<WhatsAppButton
+						label="Request teacher resources"
+						message="Hi AI For Kidds, I am a teacher and I need the right AI classroom resources."
+					/>
+				</div>
+			</div>
+		</div>
+	</section>
+</BaseLayout>

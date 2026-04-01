@@ -1,0 +1,141 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+import { gradeTracks, homeBenefits, learningBands, teachingSteps } from '../../data/site';
+
+const [featuredBand, ...secondaryBands] = learningBands;
+---
+
+<BaseLayout
+	title="Learn by Grade | AI For Kidds"
+	description="Choose the right AI learning path and browse static grade pages for students in Grades 1 through 12."
+	path="/learn-by-grade"
+>
+	<section class="page-hero">
+		<div class="shell">
+			<div class="page-hero-panel centered">
+				<span class="eyebrow">Pick your learning path</span>
+				<h1>Choose the track that matches the student's age and confidence.</h1>
+				<p>
+					Start broad with an age-based path, then move into the exact grade page for chapter roadmaps, lesson
+					highlights, revision support, and teacher-friendly notes.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="section-heading centered">
+				<span class="eyebrow">Pick your learning path</span>
+				<h2>Use the same layout flow as the PDF path-selection screen.</h2>
+			</div>
+			<div class="template-pills">
+				{learningBands.map((band, index) => (
+					<span class:list={['template-pill', index === 0 && 'is-active']}>{band.name}</span>
+				))}
+			</div>
+			<div class="featured-track">
+				<div class="featured-track-copy">
+					<span class="badge">{featuredBand.grades}</span>
+					<h3>{featuredBand.name}</h3>
+					<p>{featuredBand.description}</p>
+					<ul class="band-points">
+						{featuredBand.points.map((point) => (
+							<li>{point}</li>
+						))}
+					</ul>
+					<div class="stack-actions">
+						<a class="button button-primary" href={featuredBand.href}>{featuredBand.ctaLabel}</a>
+						<WhatsAppButton variant="secondary" label="Ask about this path" message={featuredBand.message} />
+					</div>
+				</div>
+				<div class="featured-track-visual">
+					<img src="/hero-banner.svg" alt="Students collaborating together in an AI learning environment" />
+				</div>
+			</div>
+			<div class="mini-highlight-grid">
+				{secondaryBands.map((band) => (
+					<div class="mini-card">
+						<span class="badge">{band.grades}</span>
+						<h3>{band.name}</h3>
+						<p>{band.summary}</p>
+						<a class="card-footer-link" href={band.href}>{band.ctaLabel}</a>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="section-heading centered">
+				<span class="eyebrow">Beyond coding</span>
+				<h2>AI learning should build broader thinking skills too.</h2>
+			</div>
+			<div class="template-grid-4">
+				{homeBenefits.slice(0, 4).map((item, index) => (
+					<div class="feature-card">
+						<span class="feature-icon">{index + 1}</span>
+						<h3>{item.title}</h3>
+						<p>{item.description}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="section-heading">
+				<span class="eyebrow">Browse all grades</span>
+				<h2>Open the exact grade page you need.</h2>
+				<p>
+					Every grade page follows the same template: clear focus area, chapter roadmap, lesson highlights,
+					practice direction, and one WhatsApp path for help.
+				</p>
+			</div>
+			<div class="grid grades">
+				{gradeTracks.map((track) => (
+					<a class="grade-card" href={`/learn-by-grade/${track.slug}`}>
+						<span class="badge">Grade {track.grade}</span>
+						<h3>{track.title}</h3>
+						<p>{track.summary}</p>
+						<span class="tag">{track.stage}</span>
+					</a>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="section-heading centered">
+				<span class="eyebrow">How we teach</span>
+				<h2>The same structured steps work across every grade.</h2>
+			</div>
+			<div class="how-grid">
+				{teachingSteps.map((step, index) => (
+					<div class="step-card">
+						<span class="step-number">{index + 1}</span>
+						<h3>{step.title}</h3>
+						<p>{step.description}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="cta-panel">
+				<span class="eyebrow">Need a recommendation?</span>
+				<h2>Tell us the class and we will point you to the best starting page.</h2>
+				<p>WhatsApp is the fastest way to choose between foundation discovery, revision support, and senior AI tracks.</p>
+				<div class="hero-actions" style="justify-content: center;">
+					<WhatsAppButton label="Ask for a grade suggestion" message="Hi AI For Kidds, please suggest the right grade page to start with." />
+				</div>
+			</div>
+		</div>
+	</section>
+</BaseLayout>

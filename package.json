@@ -12,6 +12,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.1",
+    "@fontsource/jetbrains-mono": "^5.2.8",
+    "@fontsource/nunito": "^5.2.7",
+    "@fontsource/plus-jakarta-sans": "^5.2.8",
     "astro": "^6.0.8"
   }
 }

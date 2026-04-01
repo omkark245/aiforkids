@@ -1,0 +1,92 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { featuredQuote, homeBenefits, teachingSteps } from '../data/site';
+---
+
+<BaseLayout
+	title="About | AI For Kidds"
+	description="Learn how AI For Kidds organizes static AI learning pages, practice resources, and teacher-friendly support for Indian schools."
+	path="/about"
+>
+	<section class="page-hero">
+		<div class="shell">
+			<div class="page-hero-panel centered">
+				<span class="eyebrow">About AI For Kidds</span>
+				<h1>A clearer, calmer, and more trustworthy way to explore AI learning in school.</h1>
+				<p>
+					AI For Kidds is designed to help students, parents, and teachers find the right AI learning page quickly.
+					The experience is intentionally static-first: light, searchable, easy to maintain, and friendly to mobile users.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell split-panel">
+			<div class="info-card">
+				<strong>Who this website is for</strong>
+				<ul class="detail-list">
+					<li>Students who want a grade-based starting point</li>
+					<li>Parents who need a clearer and more trustworthy learning path</li>
+					<li>Teachers who want static, reusable classroom support</li>
+				</ul>
+			</div>
+			<div class="info-card">
+				<strong>What this redesign improves</strong>
+				<ul class="detail-list">
+					<li>Stronger page structure based on the template you shared</li>
+					<li>Better mobile readability and cleaner visual hierarchy</li>
+					<li>Clearer page-level SEO and crawlable static routes</li>
+					<li>WhatsApp-first support instead of friction-heavy forms</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="section-heading centered">
+				<span class="eyebrow">What makes it stronger</span>
+				<h2>The website design now follows one premium system across all pages.</h2>
+			</div>
+			<div class="template-grid-3">
+				{homeBenefits.slice(0, 3).map((item, index) => (
+					<div class="feature-card">
+						<span class="feature-icon">{index + 1}</span>
+						<h3>{item.title}</h3>
+						<p>{item.description}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="how-grid">
+				{teachingSteps.map((step, index) => (
+					<div class="step-card">
+						<span class="step-number">{index + 1}</span>
+						<h3>{step.title}</h3>
+						<p>{step.description}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="quote-panel">
+				<figure style="margin: 0;">
+					<blockquote>{featuredQuote.text}</blockquote>
+					<figcaption>
+						<strong>{featuredQuote.name}</strong>
+						<br />
+						<span>{featuredQuote.role}</span>
+					</figcaption>
+				</figure>
+			</div>
+		</div>
+	</section>
+</BaseLayout>

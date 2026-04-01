@@ -1,0 +1,16 @@
+---
+type Props = {
+	message: string;
+	label: string;
+	variant?: 'primary' | 'secondary' | 'ghost';
+	className?: string;
+};
+
+import { whatsappLink } from '../data/site';
+
+const { message, label, variant = 'primary', className = '' } = Astro.props;
+---
+
+<a class={`button button-${variant} ${className}`.trim()} href={whatsappLink(message)} target="_blank" rel="noreferrer">
+	<span>{label}</span>
+</a>

@@ -1,11 +1,247 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import {
+	featuredQuote,
+	homeBenefits,
+	learningBands,
+	practiceCollections,
+	teacherResources,
+	teachingSteps,
+	trustMetrics,
+} from '../data/site';
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout
+	title="AI For Kidds | Grade-First AI Learning for Indian School Students"
+	description="Explore a premium, static AI learning website for Indian school students with grade-first navigation, practice support, projects, and teacher-friendly guidance."
+	path="/"
+>
+	<section class="home-hero">
+		<div class="shell home-hero-grid">
+			<div class="home-hero-copy">
+				<span class="eyebrow">Trusted learning paths for Grades 1 to 12</span>
+				<h1>
+					Unlock Your Child's <span>Future with AI.</span>
+				</h1>
+				<p>
+					AI For Kidds helps students, parents, and teachers find the right AI learning path quickly. The website
+					is fully static, mobile-friendly, and designed to feel calm, credible, and easy to follow.
+				</p>
+				<div class="hero-actions">
+					<a class="button button-primary" href="/learn-by-grade">Explore Learning Paths</a>
+					<WhatsAppButton
+						variant="secondary"
+						label="Chat on WhatsApp"
+						message="Hi AI For Kidds, I want help choosing the right AI learning path."
+					/>
+				</div>
+				<div class="hero-proof">
+					<div class="hero-proof-group">
+						<div class="hero-proof-avatars" aria-hidden="true">
+							<span>S</span>
+							<span>P</span>
+							<span>T</span>
+						</div>
+						<div>
+							<strong>Students, parents, and teachers</strong>
+							<small>One clear website structure for everyone</small>
+						</div>
+					</div>
+					<div>
+						<strong>Fast and fully static</strong>
+						<small>No forms, no portals, no login wall</small>
+					</div>
+				</div>
+			</div>
+			<div class="home-hero-visual">
+				<div class="hero-preview">
+					<img src="/hero-banner.svg" alt="Students learning together with AI-powered classroom support" />
+				</div>
+				<div class="hero-floating-card">
+					<div class="hero-floating-icon">AI</div>
+					<div>
+						<strong>AI-Powered Learning</strong>
+						<p>Clear learning paths, teacher-friendly support, and future-ready guidance.</p>
+					</div>
+				</div>
+				<div class="hero-mini-cards">
+					<div class="hero-mini-stat">
+						<strong>4 paths</strong>
+						<span>Age-based learning zones</span>
+					</div>
+					<div class="hero-mini-stat">
+						<strong>12 grades</strong>
+						<span>Mapped and organized</span>
+					</div>
+					<div class="hero-mini-stat">
+						<strong>1 tap</strong>
+						<span>WhatsApp support</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="stats-row">
+				{trustMetrics.map((metric) => (
+					<div class="metric-card">
+						<strong>{metric.value}</strong>
+						<span>{metric.label}</span>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="section-heading centered">
+				<span class="eyebrow">Why families choose this website</span>
+				<h2>A cleaner AI learning experience for every stage.</h2>
+				<p>
+					The template you shared works because it feels organized, premium, and easy to trust. This redesign
+					carries that same clarity across the whole site.
+				</p>
+			</div>
+			<div class="template-grid-3">
+				{homeBenefits.map((item, index) => (
+					<div class="feature-card">
+						<span class="feature-icon">{index + 1}</span>
+						<h3>{item.title}</h3>
+						<p>{item.description}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="section-heading centered">
+				<span class="eyebrow">Tailored curriculum for every age</span>
+				<h2>Pick the right AI journey with one quick glance.</h2>
+				<p>
+					This section now follows the same four-card structure from the PDF template, so each age band feels easy
+					to scan and easy to trust.
+				</p>
+			</div>
+			<div class="curriculum-card-grid">
+				{learningBands.map((band) => (
+					<div class="curriculum-card" style={`--band-accent: ${band.accent};`}>
+						<div class="curriculum-card-visual">
+							<img src="/hero-banner.svg" alt="" aria-hidden="true" />
+							<span>{band.grades}</span>
+						</div>
+						<div class="band-meta">
+							<h3>{band.name}</h3>
+							<span class="band-ages">{band.ages}</span>
+						</div>
+						<p>{band.description}</p>
+						<ul class="band-points">
+							{band.points.slice(0, 3).map((point) => (
+								<li>{point}</li>
+							))}
+						</ul>
+						<a class="card-footer-link" href={band.href}>{band.ctaLabel}</a>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="quote-panel">
+				<figure style="margin: 0;">
+					<blockquote>{featuredQuote.text}</blockquote>
+					<figcaption>
+						<strong>{featuredQuote.name}</strong>
+						<br />
+						<span>{featuredQuote.role}</span>
+					</figcaption>
+				</figure>
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="section-heading centered">
+				<span class="eyebrow">How we teach</span>
+				<h2>A simple learning flow that works on the web and in classrooms.</h2>
+				<p>
+					The site keeps the path understandable from the first visit: discover concepts, practice with static
+					resources, apply them in projects, and reflect with responsible AI habits.
+				</p>
+			</div>
+			<div class="how-grid">
+				{teachingSteps.map((step, index) => (
+					<div class="step-card">
+						<span class="step-number">{index + 1}</span>
+						<h3>{step.title}</h3>
+						<p>{step.description}</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell split-panel">
+			<div>
+				<div class="section-heading">
+					<span class="eyebrow">Practice support</span>
+					<h2>Static revision packs that stay fast and readable on mobile.</h2>
+				</div>
+				<div class="grid practice">
+					{practiceCollections.map((pack) => (
+						<div class="practice-card">
+							<span class="kicker">{pack.grades}</span>
+							<h3>{pack.title}</h3>
+							<p>{pack.description}</p>
+							<WhatsAppButton variant="ghost" label="Request this pack" message={pack.message} />
+						</div>
+					))}
+				</div>
+			</div>
+			<div>
+				<div class="section-heading">
+					<span class="eyebrow">Teacher-ready support</span>
+					<h2>Resources that match the same student journey.</h2>
+				</div>
+				<div class="grid lesson">
+					{teacherResources.map((resource) => (
+						<div class="resource-card">
+							<h3>{resource.title}</h3>
+							<p>{resource.description}</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="cta-panel">
+				<span class="eyebrow">Get started</span>
+				<h2>Ready to choose the right AI learning page?</h2>
+				<p>
+					Open the grade directory or send a quick WhatsApp message. Either way, the new template keeps the next
+					step clear.
+				</p>
+				<div class="hero-actions" style="justify-content: center;">
+					<a class="button button-secondary" href="/learn-by-grade">Explore Grades</a>
+					<WhatsAppButton
+						variant="secondary"
+						label="Request Help on WhatsApp"
+						message="Hi AI For Kidds, please help me start with the right learning path."
+					/>
+				</div>
+			</div>
+		</div>
+	</section>
+</BaseLayout>

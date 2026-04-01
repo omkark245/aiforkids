@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+import { gradeTracks } from '../../data/site';
+
+export function getStaticPaths() {
+	return gradeTracks.map((track) => ({
+		params: { slug: track.slug },
+		props: { track },
+	}));
+}
+
+const { track } = Astro.props;
+---
+
+<BaseLayout
+	title={`Grade ${track.grade} AI Learning Page | AI For Kidds`}
+	description={track.summary}
+	path={`/learn-by-grade/${track.slug}`}
+>
+	<section class="page-hero">
+		<div class="shell">
+			<div class="page-hero-panel page-hero-split">
+				<div>
+					<span class="stage-pill">Grade {track.grade} &middot; {track.stage}</span>
+					<h1>{track.title}</h1>
+					<p>{track.summary}</p>
+					<div class="hero-actions">
+						<WhatsAppButton
+							label="Ask for grade help"
+							message={`Hi AI For Kidds, I want help with Grade ${track.grade} AI learning resources.`}
+						/>
+						<a class="button button-secondary" href="/practice">Open practice zone</a>
+					</div>
+				</div>
+				<div class="page-hero-side">
+					<strong>Focus for this grade</strong>
+					<p>{track.focus}</p>
+					<div class="mini-note" style="margin-top: 16px;">
+						<strong>Teacher note</strong>
+						<p>{track.teacherNote}</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="section-heading">
+				<span class="eyebrow">Chapter roadmap</span>
+				<h2>A clear static path for Grade {track.grade} learners.</h2>
+				<p>Each unit stays lightweight, readable, and ready for both self-study and classroom use.</p>
+			</div>
+			<div class="grid timeline">
+				{track.chapterRoadmap.map((chapter, index) => (
+					<div class="timeline-card">
+						<span class="kicker">Unit {index + 1}</span>
+						<h3>{chapter}</h3>
+						<p>Static notes, classroom-friendly explanations, and a simple next step for revision.</p>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell split-panel">
+			<div>
+				<div class="section-heading">
+					<span class="eyebrow">Lesson highlights</span>
+					<h2>What this grade page helps a learner do.</h2>
+				</div>
+				<div class="grid lesson">
+					{track.lessonHighlights.map((lesson) => (
+						<div class="lesson-card">
+							<h3>{lesson}</h3>
+							<p>Short, static content designed for quick reading, stronger recall, and easier classroom use.</p>
+							<WhatsAppButton
+								variant="ghost"
+								label="Ask for notes"
+								message={`Hi AI For Kidds, I want the notes for "${lesson}" in Grade ${track.grade}.`}
+							/>
+						</div>
+					))}
+				</div>
+			</div>
+			<div>
+				<div class="section-heading">
+					<span class="eyebrow">Practice focus</span>
+					<h2>How to revise this grade with confidence.</h2>
+				</div>
+				<div class="grid lesson">
+					{track.practiceFocus.map((item) => (
+						<div class="practice-card">
+							<h3>{item}</h3>
+							<p>Use the practice page and teacher resources to reinforce this focus area.</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="cta-panel">
+				<span class="eyebrow">Next step</span>
+				<h2>Need the right worksheet, notes, or teacher guidance for Grade {track.grade}?</h2>
+				<p>Send the grade and topic on WhatsApp, and we will point you to the best static page or resource.</p>
+				<div class="hero-actions" style="justify-content: center;">
+					<WhatsAppButton
+						label={`Get Grade ${track.grade} help`}
+						message={`Hi AI For Kidds, please help me with Grade ${track.grade} resources.`}
+					/>
+				</div>
+			</div>
+		</div>
+	</section>
+</BaseLayout>

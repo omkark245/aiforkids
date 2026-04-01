@@ -1,0 +1,136 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import { contactSteps, site, siteFaqs } from '../data/site';
+---
+
+<BaseLayout
+	title="Contact | AI For Kidds"
+	description="Contact AI For Kidds through WhatsApp, phone, email, or map directions. No forms, just direct support."
+	path="/contact"
+>
+	<section class="page-hero">
+		<div class="shell">
+			<div class="page-hero-panel centered">
+				<span class="eyebrow">Direct support</span>
+				<h1>Start your AI learning journey with the right guidance today.</h1>
+				<p>
+					This static website does not use any inquiry forms. Every support path below opens a direct contact action,
+					with WhatsApp as the fastest route to help.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell contact-shell">
+			<div class="contact-panel">
+				<div class="section-heading" style="margin-bottom: 0;">
+					<span class="eyebrow">Quick contact paths</span>
+					<h2>Choose the support route that fits you best.</h2>
+				</div>
+				<div class="contact-action-list">
+					<div class="contact-action">
+						<div>
+							<h3>Student help</h3>
+							<p>Find the right grade page, lesson summary, or practice zone.</p>
+						</div>
+						<WhatsAppButton label="Open" message="Hi AI For Kidds, I need help choosing the right student learning page." />
+					</div>
+					<div class="contact-action">
+						<div>
+							<h3>Parent inquiry</h3>
+							<p>Understand where your child should start and what the site covers.</p>
+						</div>
+						<WhatsAppButton label="Open" message="Hi AI For Kidds, I am a parent and I need help choosing the right grade page." />
+					</div>
+					<div class="contact-action">
+						<div>
+							<h3>Teacher resources</h3>
+							<p>Request lesson plans, worksheets, or rollout guidance.</p>
+						</div>
+						<WhatsAppButton label="Open" message="Hi AI For Kidds, I am a teacher and I need classroom resources." />
+					</div>
+					<div class="contact-action">
+						<div>
+							<h3>School partnership</h3>
+							<p>Discuss grade mapping or school-level AI learning support.</p>
+						</div>
+						<WhatsAppButton label="Open" message="Hi AI For Kidds, I want to discuss school-level AI learning support." />
+					</div>
+				</div>
+				<div class="side-note-box">
+					<h3>No forms, no waiting</h3>
+					<p>
+						This page follows the same clean contact-page layout as the template, but keeps the experience fully
+						static by routing every enquiry through direct contact actions.
+					</p>
+				</div>
+			</div>
+			<div>
+				<div class="section-heading">
+					<span class="eyebrow">How it works</span>
+					<h2>Simple support in three clear steps.</h2>
+				</div>
+				<div class="process-list">
+					{contactSteps.map((step, index) => (
+						<div class="process-item">
+							<span class="step-number">{index + 1}</span>
+							<div>
+								<h3>{step.title}</h3>
+								<p>{step.description}</p>
+							</div>
+						</div>
+					))}
+					<div class="info-card">
+						<strong>Direct contact details</strong>
+						<ul class="detail-list">
+							<li><a href={`tel:${site.whatsAppNumber}`}>{site.phoneDisplay}</a></li>
+							<li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+							<li>{site.address}</li>
+							<li>{site.officeHours}</li>
+						</ul>
+					</div>
+					<div class="side-note-box">
+						<h3>Why start now?</h3>
+						<p>Choosing the right grade path early makes it much easier for students, parents, and teachers to stay aligned.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="section-heading centered">
+				<span class="eyebrow">Frequently asked questions</span>
+				<h2>Everything you need to know before starting with AI For Kidds.</h2>
+			</div>
+			<div class="faq-list">
+				{siteFaqs.map((faq) => (
+					<div class="faq-item">
+						<details>
+							<summary>{faq.question}</summary>
+							<p>{faq.answer}</p>
+						</details>
+					</div>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="page-section">
+		<div class="shell">
+			<div class="cta-panel">
+				<span class="eyebrow">Still have questions?</span>
+				<h2>Choose the easiest way to reach us.</h2>
+				<p>Use WhatsApp for the fastest answer, or call or email if you prefer a more direct contact path.</p>
+				<div class="hero-actions" style="justify-content: center;">
+					<a class="button button-secondary" href={`tel:${site.whatsAppNumber}`}>Call Us Now</a>
+					<a class="button button-secondary" href={`mailto:${site.email}`}>Send an Email</a>
+					<WhatsAppButton label="WhatsApp Support" message="Hi AI For Kidds, I need help choosing the right page for me." />
+				</div>
+			</div>
+		</div>
+	</section>
+</BaseLayout>

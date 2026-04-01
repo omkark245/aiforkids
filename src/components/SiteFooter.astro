@@ -1,0 +1,52 @@
+---
+import { navigation, site, whatsappLink } from '../data/site';
+---
+
+<footer class="site-footer">
+	<div class="shell footer-grid">
+		<div>
+			<a class="brand brand-footer" href="/">
+				<span class="brand-mark">AI</span>
+				<span class="brand-copy">
+					<strong>AI For Kidds</strong>
+					<small>Grade-first AI learning for students, parents, and teachers.</small>
+				</span>
+			</a>
+			<p class="footer-copy">
+				A premium, static website for AI learning in Indian schools with structured grade pages, practice support,
+				projects, and direct WhatsApp guidance.
+			</p>
+		</div>
+		<div>
+			<h2>Explore</h2>
+			<ul class="footer-list">
+				{navigation.map((item) => (
+					<li><a href={item.href}>{item.label}</a></li>
+				))}
+			</ul>
+		</div>
+		<div>
+			<h2>Support</h2>
+			<ul class="footer-list">
+				<li><a href={whatsappLink('Hi AI For Kidds, I need help with the website resources.')}>WhatsApp support</a></li>
+				<li><a href="/practice">Practice resources</a></li>
+				<li><a href="/projects">Projects</a></li>
+				<li><a href="/for-teachers">Teacher resources</a></li>
+			</ul>
+		</div>
+		<div>
+			<h2>Contact Us</h2>
+			<ul class="footer-list">
+				<li><a href={`tel:${site.whatsAppNumber}`}>{site.phoneDisplay}</a></li>
+				<li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+				<li><a href={site.mapLink} target="_blank" rel="noreferrer">Open location</a></li>
+				<li><a href="/privacy-policy">Privacy Policy</a></li>
+				<li><a href="/terms">Terms</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="shell footer-bottom">
+		<p>&copy; 2026 AI For Kidds. All rights reserved.</p>
+		<p>{site.officeHours}</p>
+	</div>
+</footer>
